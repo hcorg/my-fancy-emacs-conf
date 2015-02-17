@@ -1,0 +1,44 @@
+(load-file "~/.emacs.d/custom.el")
+
+;;  clang -x c++-header ClangPch.h -o ClangPch.h.pch -I/usr/include -I/usr/lib/gcc/x86_64-redhat-linux/4.9.2/include/ -I/usr/include/c++/4.9.2 -I/usr/include/c++/4.9.2/x86_64-redhat-linux
+
+(setq clang-completion-flags '("-std=c++11"
+                               "-code-completion-macros"
+                               "-fexceptions"
+                               "-pthread"
+                               "-include/home/XXXXXXXXX/dev/ClangPch.h"
+                               "-Winvalid-pch"
+                               "-I/usr/include"
+                               "-I/usr/lib/gcc/x86_64-redhat-linux/4.9.2/include"
+                               "-I/usr/include/c++/4.9.2"
+                               "-I/usr/include/c++/4.9.2/x86_64-redhat-linux"
+                               )
+)
+
+(setq ac-clang-flags clang-completion-flags)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(c-basic-offset 2)
+ '(c-default-style (quote ((c-mode . "bsd") (c++-mode . "bsd") (other . "bsd"))))
+ '(c-offsets-alist (quote ((innamespace . -))))
+ '(column-number-mode t)
+ '(compile-command "make -j 5 -C ~/dev/XXXXX/ ")
+ '(grep-command "grep -RIn -e ")
+ '(indent-tabs-mode nil)
+ '(menu-bar-mode nil)
+ '(python-python-command "python2")
+ '(show-paren-mode t)
+ '(standard-indent 2)
+ '(tab-always-indent t)
+ '(tool-bar-mode nil))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#102e4e" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))

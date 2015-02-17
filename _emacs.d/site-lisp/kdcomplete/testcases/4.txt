@@ -1,0 +1,11 @@
+/maps/dnils/completion/testcases/1.cpp
+5 
+9
+#include <vector>
+struct Test {int x; int y;};
+int main() {
+    Test apa;
+    apa.
+}
+
+
