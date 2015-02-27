@@ -53,7 +53,7 @@
 ; load other files
 (load-file "~/.emacs.d/custom-colors.el")
 (load-file "~/.emacs.d/custom-yasnippet.el")
-;(load-file "~/.emacs.d/custom-magit.el")
+(load-file "~/.emacs.d/custom-magit.el")
 (load-file "~/.emacs.d/custom-c.el")
 
 ;; Ctrl+V
