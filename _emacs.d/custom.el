@@ -55,6 +55,7 @@
 (load-file "~/.emacs.d/custom-yasnippet.el")
 (load-file "~/.emacs.d/custom-magit.el")
 (load-file "~/.emacs.d/custom-c.el")
+(load-file "~/.emacs.d/custom-asn1.el")
 
 ;; Ctrl+V
 (defun kill-replace (start end)
