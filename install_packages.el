@@ -17,7 +17,7 @@
 
 (unless (fancy-packages-installed-p)
   ;; check for new packages (package versions)
-     (message "%s" "Emacs Prelude is now refreshing its package database...")
+     (message "%s" "Emacs Fancy Config is now refreshing its package database...")
        (package-refresh-contents)
          (message "%s" " done.")
            ;; install the missing packages
