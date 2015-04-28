@@ -11,6 +11,7 @@
 (defvar my-fancy-conf-packages
   '(magit
     auto-complete
+    auto-complete-clang
     auto-complete-c-headers)
   "A list of packages to ensure are installed at launch.")
 

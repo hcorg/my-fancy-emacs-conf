@@ -13,20 +13,28 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
-(define-key ac-mode-map  [(control return)] 'ac-complete)
-(require 'auto-complete-config)
+(define-key ac-mode-map  [(control return)] 'auto-complete)
 (ac-config-default)
+
 ; ------------------------------------------------------------------------------
 ; auto complete headers
 ; ------------------------------------------------------------------------------
-;;(require 'auto-complete-c-headers)
 (defun my:ac-c-headers-init ()
   (require 'auto-complete-c-headers)
   (add-to-list 'ac-sources 'ac-source-c-headers))
 
 (add-hook 'c++-mode-hook 'my:ac-c-headers-init)
 (add-hook 'c-mode-hook 'my:ac-c-headers-init)
-;;(add-to-list 'ac-sources 'ac-source-c-headers)
+
+; ------------------------------------------------------------------------------
+; auto complete clang
+; ------------------------------------------------------------------------------
+(require 'auto-complete-clang)
+(defun my-ac-cc-mode-setup ()
+  (setq ac-auto-start nil)
+  (setq ac-quick-help-delay 0.5)
+  (setq ac-sources (append '(ac-source-clang ac-source-yasnippet) ac-sources)))
+(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
 
 ; ------------------------------------------------------------------------------
 ; cedet
