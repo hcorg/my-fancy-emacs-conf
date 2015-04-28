@@ -79,4 +79,4 @@
 (setq compilation-finish-function `ding1)
 
 ;; Thrift
-(require 'thrift-mode)
+(require 'thrift)

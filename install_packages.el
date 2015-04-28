@@ -10,6 +10,7 @@
 
 (defvar my-fancy-conf-packages
   '(magit
+    thrift
     auto-complete
     auto-complete-clang
     auto-complete-c-headers)
