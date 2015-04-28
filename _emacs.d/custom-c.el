@@ -8,10 +8,31 @@
 (add-to-list 'auto-mode-alist (cons include-base-dir 'c++-mode))
 
 ; ------------------------------------------------------------------------------
+; auto complete
+; ------------------------------------------------------------------------------
+(require 'auto-complete)
+(require 'auto-complete-config)
+(global-auto-complete-mode t)
+(define-key ac-mode-map  [(control return)] 'ac-complete)
+(require 'auto-complete-config)
+(ac-config-default)
+; ------------------------------------------------------------------------------
+; auto complete headers
+; ------------------------------------------------------------------------------
+;;(require 'auto-complete-c-headers)
+(defun my:ac-c-headers-init ()
+  (require 'auto-complete-c-headers)
+  (add-to-list 'ac-sources 'ac-source-c-headers))
+
+(add-hook 'c++-mode-hook 'my:ac-c-headers-init)
+(add-hook 'c-mode-hook 'my:ac-c-headers-init)
+;;(add-to-list 'ac-sources 'ac-source-c-headers)
+
+; ------------------------------------------------------------------------------
 ; cedet
 ; ------------------------------------------------------------------------------
 
-(load-file "~/.emacs.d/site-lisp/cedet/common/cedet.el")
+;(load-file "~/.emacs.d/site-lisp/cedet/common/cedet.el")
 
 ;; (require 'semantic-load)
 ;; (require 'semanticdb-system)
@@ -70,51 +91,52 @@
 ;; ; auto complete with kdcomplete
 ;; ; ------------------------------------------------------------------------------
 
-(add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
-(add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete-clang-brianjcj")
- ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/kdcomplete")
+;(add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete")
+;; (add-to-list 'load-path "~/.emacs.d/site-lisp/auto-complete-clang-brianjcj")
+;;  ;; (add-to-list 'load-path "~/.emacs.d/site-lisp/kdcomplete")
 
-(require 'auto-complete)
-(add-to-list 'ac-dictionary-directories
-             "~/.emacs.d/site-lisp/auto-complete/dict")
+;; (require 'auto-complete)
+;; ;(add-to-list 'ac-dictionary-directories
+;; ;             "~/.emacs.d/site-lisp/auto-complete/dict")
 
-(require 'auto-complete-config)
-(ac-config-default)
+;; (require 'auto-complete-config)
+;; (ac-config-default)
 
-(require 'auto-complete-clang)
-(setq ac-auto-start nil)
-(setq ac-delay 0)
-(setq ac-quick-help-delay 0)
+;; (require 'auto-complete-clang)
+;; (setq ac-auto-start nil)
+;; (setq ac-delay 0)
+;; (setq ac-quick-help-delay 0)
 
-(set-face-background 'ac-clang-candidate-face "#1f1f1f")
-(set-face-foreground 'ac-clang-candidate-face "white")
-(set-face-background 'ac-clang-selection-face "darkgreen")
-(set-face-foreground 'ac-clang-selection-face "white")
-(set-face-background 'ac-candidate-face "#1f1f1f")
-(set-face-foreground 'ac-candidate-face "white")
-(set-face-background 'ac-selection-face "darkgreen")
-(set-face-foreground 'ac-selection-face "white")
-(set-face-background 'popup-tip-face "#292929")
-(set-face-foreground 'popup-tip-face "white")
+;; (set-face-background 'ac-clang-candidate-face "#1f1f1f")
+;; (set-face-foreground 'ac-clang-candidate-face "white")
+;; (set-face-background 'ac-clang-selection-face "darkgreen")
+;; (set-face-foreground 'ac-clang-selection-face "white")
+;; (set-face-background 'ac-candidate-face "#1f1f1f")
+;; (set-face-foreground 'ac-candidate-face "white")
+;; (set-face-background 'ac-selection-face "darkgreen")
+;; (set-face-foreground 'ac-selection-face "white")
+;; (set-face-background 'popup-tip-face "#292929")
+;; (set-face-foreground 'popup-tip-face "white")
 
-(defun my-ac-config ()
-  (setq-default ac-sources
-                '(ac-source-abbrev
-                  ac-source-dictionary
-                  ac-source-words-in-same-mode-buffers))
-  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-  (global-auto-complete-mode t))
+;; (defun my-ac-config ()
+;;   (setq-default ac-sources
+;;                 '(ac-source-abbrev
+;;                   ac-source-dictionary
+;;                   ac-source-words-in-same-mode-buffers))
+;;   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+;;   (global-auto-complete-mode t))
 
-(defun my-ac-cc-mode-setup ()
-  (setq ac-sources (append '(ac-source-clang
-;;                             ac-source-semantic
-                             ac-source-yasnippet)
-                           ac-sources))
-  (define-key ac-mode-map  [(control return)] 'ac-complete-clang)
-)
+;; (defun my-ac-cc-mode-setup ()
+;;   (setq ac-sources (append '(ac-source-clang
+;; ;;                             ac-source-semantic
+;;                              ac-source-yasnippet)
+;;                            ac-sources))
+;;   (define-key ac-mode-map  [(control return)] 'ac-complete-clang)
+;;   (add-to-list 'ac-sources 'ac-source-c-headers)
+;; )
 
-(add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
-(my-ac-config)
+;; (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+;; (my-ac-config)
 
 ;; ff-find-other-file
 (setq cc-other-file-alist
@@ -153,7 +175,8 @@
 ; misc
 ; ------------------------------------------------------------------------------
 
-; C++11 keywords
+;; C++11 keywords
+;; TODO - check if new emacs still needs those
 (font-lock-add-keywords 'c++-mode
                         '(("\\<\\(constexpr\\|decltype\\|nullptr\\|static_assert\\)\\>"
                            . font-lock-keyword-face)))

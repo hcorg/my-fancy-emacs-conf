@@ -9,7 +9,9 @@
 (package-refresh-contents)
 
 (defvar my-fancy-conf-packages
-  '(magit)
+  '(magit
+    auto-complete
+    auto-complete-c-headers)
   "A list of packages to ensure are installed at launch.")
 
 (defun fancy-packages-installed-p ()
@@ -17,10 +19,10 @@
 
 (unless (fancy-packages-installed-p)
   ;; check for new packages (package versions)
-     (message "%s" "Emacs Fancy Config is now refreshing its package database...")
-       (package-refresh-contents)
-         (message "%s" " done.")
-           ;; install the missing packages
-             (dolist (p my-fancy-conf-packages)
-                 (when (not (package-installed-p p))
-                       (package-install p))))
+  (message "%s" "Emacs Fancy Config is now refreshing its package database...")
+  (package-refresh-contents)
+  (message "%s" " done.")
+  ;; install the missing packages
+  (dolist (p my-fancy-conf-packages)
+    (when (not (package-installed-p p))
+      (package-install p))))

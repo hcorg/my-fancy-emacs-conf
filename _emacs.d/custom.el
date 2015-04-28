@@ -1,5 +1,12 @@
+; Additional packages
 (add-to-list 'load-path "~/.emacs.d/site-lisp")
-;(add-to-list 'load-path "~/.emacs.d")
+
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+
+; IDE layout
 
 (tool-bar-mode nil)
 (scroll-bar-mode nil)
@@ -73,8 +80,3 @@
 
 ;; Thrift
 (require 'thrift-mode)
-
-;; Additional packages
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
