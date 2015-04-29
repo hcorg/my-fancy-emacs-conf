@@ -12,6 +12,7 @@
   '(magit
     thrift
     color-theme
+    dropdown-list
     yasnippet
     auto-complete
     auto-complete-clang
