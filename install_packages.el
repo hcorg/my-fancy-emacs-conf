@@ -9,7 +9,8 @@
 (package-refresh-contents)
 
 (defvar my-fancy-conf-packages
-  '(magit
+  '(find-things-fast
+    magit
     thrift
     color-theme
     dropdown-list
