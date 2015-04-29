@@ -11,6 +11,7 @@
 (defvar my-fancy-conf-packages
   '(magit
     thrift
+    color-theme
     auto-complete
     auto-complete-clang
     auto-complete-c-headers)
