@@ -452,7 +452,7 @@ Modify this variable take effect only after (X)Emacs restart.")
   :group 'asn1-options)
 
 (defconst asn1-data-faces-default
-  `((asn1-skeleton-face		"blue"		nil nil t	nil	nil
+  `((asn1-skeleton-face		"dodger blue"		nil nil t	nil	nil
 	,(asn1-lg "Mots-cles participant a la structure d'un module"
 	   "module skeleton"))
     (asn1-type-face		"cadetblue"	nil nil t	nil	nil
