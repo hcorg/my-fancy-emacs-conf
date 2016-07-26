@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+#name: File doxygen description
+#key: filedox
+# --
+/// \file  ${1:`(file-name-nondirectory(buffer-file-name))`}
+/// \brief ${2:A Documented file.}

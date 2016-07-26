@@ -1,4 +1,6 @@
 (require 'yasnippet)
+
+(setcdr yas-snippet-dirs (cons "~/.emacs.d/snippets" (rest yas-snippet-dirs)))
 (yas/initialize)
 
 (require 'dropdown-list)

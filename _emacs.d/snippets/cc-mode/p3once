@@ -1,0 +1,16 @@
+#name : PROBA3 #ifndef XXX; #define XXX; #endif
+# key: p3once
+# --
+// N7 Mobile Sp. z o.o.
+// http://www.n7mobile.com
+// COPYRIGHT (C) 2016
+//
+// Licensed under the terms of:
+//     Proba 3 Coronagraph Phase C/D/E1 - contract P3-CSL-CO-15012
+
+#ifndef P3_CCB_${1:`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H}
+#define P3_CCB_$1
+
+$0
+
+#endif // P3_CCB_$1
